@@ -1,16 +1,18 @@
-# This is a sample Python script.
+# from turtle import Turtle as Tu, Screen
+#
+# timmy_the_turtle = Tu()
+#
+# # timmy_the_turtle.shape("arrow")
+# timmy_the_turtle.color("black")
+# screen = Screen()
+# screen.bgcolor("bisque2")
+#
+# for _ in range(4):
+#     timmy_the_turtle.right(90)
+#     timmy_the_turtle.forward(100)
+#
+#
+#
+# screen.exitonclick()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import heroes
