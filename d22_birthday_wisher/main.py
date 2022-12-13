@@ -19,4 +19,66 @@
 # HINT: Gmail(smtp.gmail.com), Yahoo(smtp.mail.yahoo.com), Hotmail(smtp.live.com), Outlook(smtp-mail.outlook.com)
 
 
+import datetime as dt
+import pandas as pd
+import random
+import smtplib
+
+
+def send_letter():
+    my_email = "marcin.betlej@gmail.com"
+    password = "ygqnzuyacfxcfkoe"
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+        connection.starttls()
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email,
+            to_addrs=person_email,
+            msg=f"Subject: {person_age} Birthday wishes\n\n"
+                f"{final_letter}")
+
+
+persons_data = pd.read_csv("birthdays.csv")
+birthdays = persons_data.to_dict(orient="records")
+
+letters = []
+with open("./letter_templates/letter_1.txt", "r") as text1:
+    letters.append(text1.read())
+with open("./letter_templates/letter_2.txt", "r") as text2:
+    letters.append(text2.read())
+with open("./letter_templates/letter_3.txt", "r") as text3:
+    letters.append(text3.read())
+
+today = dt.datetime.now()
+today_year = today.year
+today_month = today.month
+today_day = today.day
+
+for person in birthdays:
+    if person["month"] == today_month and person["day"] == today_day:
+        person_name = person["name"]
+        person_email = person["email"]
+        person_year = person["year"]
+        person_month = person["month"]
+        person_day = person["day"]
+        person_age = today_year-person_year
+
+        selected_letter = random.choice(letters)
+        final_letter = selected_letter.replace("[NAME]", person_name)
+        send_letter()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
