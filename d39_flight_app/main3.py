@@ -33,3 +33,9 @@ pprint(flight_data)
 # return between 7 and 28 days in length. The currency of the price we get back should be in GBP.
 
 
+def zmianne:
+# to jest opis zmiennej
+    print("cos")
+
+
+zmianne()
