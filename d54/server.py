@@ -33,17 +33,23 @@ def say_bye(name):
 def quess():
     return "Bye"
 
-
-@app.route('/blog/<num>')
-def get_blog(num):
+@app.route('/blog')
+def get_blog():
     endpoint3 = "https://api.npoint.io/c790b4d5cab58020d391"
-    # user_params = {"name": name}
     response3 = requests.get(url=endpoint3)
     all_posts = response3.json()
-    print(num)
-    return render_template('blog.html', aidi=int(num), posts=all_posts)
+    return render_template('blog.html', posts=all_posts)
 
-
+#
+# @app.route('/blog/<num>')
+# def get_blog(num):
+#     endpoint3 = "https://api.npoint.io/c790b4d5cab58020d391"
+#     response3 = requests.get(url=endpoint3)
+#     all_posts = response3.json()
+#     print(num)
+#     return render_template('blog.html', aidi=int(num), posts=all_posts)
+#
+#
 
 
 if __name__ == '__main__':
